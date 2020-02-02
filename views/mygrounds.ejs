@@ -1,0 +1,19 @@
+<%- include ("partials/header") %>
+<div class="container">
+	<!-- <a href="/">home</a> -->
+	<header class="jumbotron">
+		<h1>Welcome to myground!!!</h1>
+		<p>this is my favorite snaps</p>
+		<a class="btn btn-primary"href="mygrounds/new">add new ground</a>
+	</header>
+	<div class="row">
+		<% mygrounds.forEach( function(a) { %>
+			<div class="img-thumbnail col-12 col-xl-4">
+				<img class="figure-img myground" src="<%= a.image %>" >
+				<p class="figure-caption"><%= a.name %></p>
+			</div>
+		<% }); %>
+	</div>
+</div>
+
+<%- include ("partials/footer") %>
