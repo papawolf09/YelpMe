@@ -1,3 +1,15 @@
+* {
+	font-family: Helvetica;
+}
+
+h1 {
+	color: #563d7c;
+}
+
+.bd-navbar {
+	background: #563d7c;
+}
+
 .myground {
 	width: 100%;
 }

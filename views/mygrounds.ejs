@@ -1,19 +1,25 @@
 <%- include ("partials/header") %>
-<div class="container">
+
+<div class="container px-0 secondContainer">
 	<!-- <a href="/">home</a> -->
-	<header class="jumbotron">
+	<div class="jumbotron-fluid px-5 py-5">
 		<h1>Welcome to myground!!!</h1>
 		<p>this is my favorite snaps</p>
 		<a class="btn btn-primary"href="mygrounds/new">add new ground</a>
-	</header>
+	</div>
 	<div class="row">
 		<% mygrounds.forEach( function(a) { %>
-			<div class="img-thumbnail col-12 col-xl-4">
-				<img class="figure-img myground" src="<%= a.image %>" >
-				<p class="figure-caption"><%= a.name %></p>
+			<div class="col-12 col-xl-4">
+				<img class="img-thumbnail rounded-0 figure-img myground" src="<%= a.image %>" >	
+				<p class="figure-caption text-center"><%= a.name %></p>
+				<br>
 			</div>
 		<% }); %>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$("li:contains('myground')").addClass("active");	
+</script>
 
 <%- include ("partials/footer") %>
