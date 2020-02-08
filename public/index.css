@@ -6,8 +6,20 @@ h1 {
 	color: #563d7c;
 }
 
-.bd-navbar {
+.bg-purple {
 	background: #563d7c;
+	color: white;
+}
+
+.btn-purple {
+	color: #563d7c;
+	background: white;
+	border-color: #563d7c;
+}
+
+.btn-purple:hover {
+	background: #563d7c;
+	color: white;
 }
 
 .myground {
