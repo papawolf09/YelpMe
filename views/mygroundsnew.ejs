@@ -1,12 +1,31 @@
 <%- include ("partials/header") %>
-
-<h1>fill in blanks</h1>
-<a href="/mygrounds">back</a>
-
-<form action="/mygrounds" method="POST">
-	<input type="text" placeholder="name" name="name">
-	<input type="text" placeholder="image url" name="image">
-	<button>submit</button>
-</form>
-
+<div class="container">
+    <div class="jumbotron-fluid bg-light px-5 py-5 my-3">
+        <h1 class="display-4s">Submit your image</h1>
+        <p>caution: you have to put valid URL</p>
+    </div>
+    <form action="/mygrounds" method="POST">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="" value="" required="">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="url">URL</label>
+                <input type="text" class="form-control" id="url" name="image" placeholder="" value="" required="">
+            </div>
+        </div>
+        <hr class="mb-4">
+        <div class="row">
+            <div class="button-col col-md-6">
+                <a class="btn btn-secondary btn-lg btn-block" href="/mygrounds">
+                    Back to grounds
+                </a>
+            </div>
+            <div class="button-col col-md-6">
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Submit!</button>
+            </div>
+        </div>
+    </form>
+</div>
 <%- include ("partials/footer") %>
