@@ -69,8 +69,7 @@ app.get("/mygrounds", function(req, res) {
 		if (err) {
 			console.log(err);
 		} else {
-			console.log(grounds);
-			// eval(require('locus'));
+			// console.log(grounds);
 			res.render("mygrounds", {mygrounds:grounds})
 		}
 	});
@@ -83,7 +82,14 @@ app.post("/mygrounds", function(req, res) {
 	var mygroundsnew = {}
 	mygroundsnew["name"] = name;
 	mygroundsnew["url"] = url;
-	mygrounds.push(mygroundsnew);
+	// mygrounds.push(mygroundsnew);
+	Myground.create(mygroundsnew, function(err, ground){
+		if (err) {
+			console.log(err);
+		} else {
+			console.log(ground + " is added");
+		}
+	});
 	res.redirect("/mygrounds");
 });
 

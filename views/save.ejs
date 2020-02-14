@@ -1,6 +1,6 @@
 <%- include ("partials/header") %>
 <div class="container">
-    <div class="jumbotron fluid bg-light">
+    <div class="jumbotron-fluid bg-light px-5 py-5 my-3">
         <h1 class="display-4s">Submit your image</h1>
         <p>caution: you have to put valid URL</p>
     </div>
@@ -18,33 +18,32 @@
         <hr class="mb-4">
         <div class="row">
             <div class="col-md-6">
-                <a class="btn btn-secondary btn-lg btn-block mb-3" href="/mygrounds">Back to grounds</a>
+                <a class="btn btn-secondary btn-lg btn-block" href="/mygrounds">Back to grounds</a>
             </div>
             <div class="col-md-6">
-                <a class="btn btn-info btn-lg btn-block text-white mb-3">Preview</a>
+                <a class="btn btn-info btn-lg btn-block text-white">Preview</a>
             </div>
 			<div class="col-md-6 displayNone">
-                <a class="btn btn-secondary btn-lg btn-block text-white mb-3">Close</a>
+                <a class="btn btn-secondary btn-lg btn-block text-white">Close</a>
             </div>
             <div class="col-md-6 displayNone">
-                <button class="btn btn-primary btn-lg btn-block mb-3" type="submit">Submit!</button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Submit!</button>
             </div>
         </div>
-		<div class="jumbotron bg-light displayNone" id="preview">
+		<div class="jumbotron-fluid bg-light px-5 py-5 my-3 preview">
 			<h2>preview</h2>
-			<br>
 			<div class="row">
 				<div class="col-12 col-md-4">
-					<img class="img-thumbnail rounded-0 figure-img myground pURL" id="pURL" src="" >	
+					<img class="img-thumbnail rounded-0 figure-img myground pURL" src="" >	
 					<p class="figure-caption text-center pName" id="pName"></p>
 				</div>
 				<div class="col-12 col-md-4">
-					<img class="img-thumbnail rounded-0 figure-img myground" src="/imgs/sample_red.png" >	
-					<p class="figure-caption text-center">sample red</p>
+					<img class="img-thumbnail rounded-0 figure-img myground" src="https://previews.dropbox.com/p/thumb/AAtSm5mzTh2EbM6x-gCcsKhbCGcR6UQBbkCCqFKFl5A5lU4-ebe8y5rQHkKlYXIvUA2v7WtTiM0UPUTheqm7eGPTGCo-8HxR4mZqFaL_as-jzd-SqqhocDgrAHwELK3taPiTEDCu1pMGYDRE41gWn7L2m6ZAqws53Dn0yin49RFzVSpjO9ra4DWoU7xWNkcEq3awK_-VaWMnmzqJtCdPBlVepWTEQ24Fn3arR5HzAA9LtRTtkF-1wjNVwyNsKmLLr20b5HQ8q2J1YyPeGqQgfqmiFTz2f7KpCQ2FmLfqjcApIIMEZGCCA716fKCh2btx8QFXPeM_RtqtK84SiZjlH-SMjIbhUcaLbw-QBIETHn8qwW9n37qJisG4tTz5fh2EA0GktxdtFWNbakLrCNyJLN9Gp1tvT2yjggf7QkSZWsRjKg/p.png?fv_content=true&size_mode=5" >	
+					<p class="figure-caption text-center"></p>
 				</div>
 				<div class="col-12 col-md-4">
-					<img class="img-thumbnail rounded-0 figure-img myground" src="/imgs/sample_blue.png" >	
-					<p class="figure-caption text-center">sample blue</p>
+					<img class="img-thumbnail rounded-0 figure-img myground" src="https://previews.dropbox.com/p/thumb/AAtLMP4oKC6b38-1nbBdPyjVy4jSBZZhHFHpkdP4tYjGQXMNJYOyW-FyJkhFLR2uhhEZgqVg2ptN-rnWpJiePRWfZ-qA0eXBwpXDxEeszuybweJGDTCNbPnLCLFST3hYXyCmIE8XiX1tTT8uMX89YxQ6-8aDu9BjXoWganq03wHniLGZ4WdQgXu04PALhWFLtvkG7o9gs2sslkOzsa1BWN1VqiJqzwLI5wHeESIUQgjfHGsoytY9HM17hr1XHz_W4FCsE0gZfwlOeTU4aLgDsVuJXnMqbrpNA_Ayb70yU-6yfKXkLqJh0jrhH6NqC2VHwW10n0zzfzVgSpCNbacFOCx231p-GGu024EIn6h4XOmVKPMt02ku8AEblbXFIbKG3qbndtYEOWkLi1ucAtBLhQonLDsehxhTbq9ktRQ0zQo25Q/p.png?size=2048x1536&size_mode=3" >	
+					<p class="figure-caption text-center"></p>
 				</div>
 			</div>
 		</div>
@@ -52,19 +51,25 @@
 </div>
 
 <script>
+	$(".img-thumbnail").parent().toggleClass("displayNone");
+	
+	// $(".btn:contains('Back')").parent().toggleClass("displayNone");
+	
 	$("label:contains('Nam')").siblings("input").keyup(function() {
 		var name = $(this).val();
-		$("#pName").text(name);s
+		$("#pName").text(name);
 	});
 	
 	$("label:contains('URL')").siblings("input").keyup(function() {
 		var URL = $(this).val();
-		$("#pURL").attr("src", URL);
-	});	
+		$(".pURL").attr("src", URL);
+	});
+	
+	$("label:contains('URL')").siblings("input").css('outline', 'solid 1px red');
 	
 	//button configure
 	$(".btn:contains('Preview')").parent().click(function() {
-		$("#preview").slideToggle();
+		$(".preview").toggleClass("displayNone");
 		$(".btn:contains('Back')").parent().toggleClass("displayNone");
 		$(".btn:contains('Prev')").parent().toggleClass("displayNone");
 		$(".btn:contains('Clos')").parent().toggleClass("displayNone");
@@ -72,7 +77,7 @@
 	});
 	
 	$(".btn:contains('Close')").parent().click(function() {
-		$("#preview").slideToggle();
+		$(".preview").toggleClass("displayNone");
 		$(".btn:contains('Back')").parent().toggleClass("displayNone");
 		$(".btn:contains('Prev')").parent().toggleClass("displayNone");
 		$(".btn:contains('Clos')").parent().toggleClass("displayNone");

@@ -6,6 +6,10 @@ h1 {
 	color: #563d7c;
 }
 
+.displayNone {
+	display: none;
+}
+
 .bg-purple {
 	background: #563d7c;
 	color: white;
@@ -22,10 +26,21 @@ h1 {
 	color: white;
 }
 
-.myground {
+.widthHundred {
 	width: 100%;
 }
 
 .groundThumnail {
 	padding: 30px 30px;
+}
+
+.fluid {
+	border-radius: 0;
+	margin-top: 1rem;
+}
+
+#preview {
+	color: #563d7c;
+	margin: 3rem 0;
+	border-radius: 0;
 }
